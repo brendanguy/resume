@@ -1,0 +1,75 @@
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #cfe1f37c;
+}
+
+nav {
+    background-color: #1e516c;
+    text-align: center;
+    height: 50px;
+}
+nav > div {
+    height: 100%
+}
+nav > div > a {
+    color: white;
+    text-decoration: none;
+    padding: 1rem;
+    position: relative;
+}
+nav > div > a:hover {
+    background-color: rgb(44, 44, 41);
+}
+
+#home {
+    background-image: url("utah (2)_1920x715.jpg");
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#home > h1 {
+    font-size: 3em;
+    text-align: center;
+}
+#home > img {
+    margin-left: 10%;
+}
+#home > p {
+    display: inline;
+}
+img {
+    border-radius: 50%;
+    float: left;
+}
+.headingstyle {
+    background-color: #f08a26;
+    font-family: palatino;
+    text-align: center;
+}
+.indent {
+    padding-left: 80px;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Contact {
+    background-color: #6b8fb1;
+    float: right;
+    width: 500px;
+    padding-left: 65px;
+    position: relative;
+}
+
+footer {
+    text-align: center;
+}

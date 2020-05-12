@@ -3,36 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Brenda Nguy</title>
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
 </head>
+
 <body>
-    <section>
+    <nav>
+        <div>
+        <a href="#Education">Education</a>
+        <a href="#Professional Experience">Professional Experience</a>
+        <a href="#Skills">Skills</a>
+        <a href="#Certificates & Awards">Certificates & Awards</a>
+        <a href="#Portfolio">Portfolio</a>
+        <a href="#References">References</a>
+        </div>
+    </nav>
+
+    <section id="home">
         <h1>Brenda Nguy</h1>
-        <h4>brenda-nguy@hotmail.com<br>
-        (801) 953-2586</h4>
-        <h2>Personal Bio</h2>
-        I enjoy outdoor activities such as hiking, riding bikes, longboarding etc.<br> 
+        <img src="Headshot.jpg" height="200px" alt="Avatar">
+        <p>I enjoy outdoor activities such as hiking, riding bikes, longboarding etc.<br> 
         My other hobbies include creativity like: drawing, building, and crafting.<br> 
-        I appreciate learning new skills and concepts.
+        I appreciate learning new skills and concepts.</p>
         </section> 
     
-        <section>
-        <h2>Education</h2>
-        <h3>Granger High School</a></h3>
+        <section id="Education">
+        <h2 class="headingstyle">Education</h2>
+        <h3><a href="https://schools.graniteschools.org/grangerhigh/" target="_blank">Granger High School</a></h3>
         <ul>
             <li><h4>High School Diploma - (June 2014)</h4></li>
         </ul>
         Received High School Diploma. Completed concurrent enrollment and honor classes. Dance Company team member for 3 years.
-        <h3>Salt Lake Community College</a></h3>
+        <h3><a href="http://www.slcc.edu/" target="_blank">Salt Lake Community College</a></h3>
         <ul>
             <li><h4>Certificate of Completion - (May 2017)</h4></li>
         </ul>
         Awarded Certificate of Completion in General Studies AS with 3.4 GPA. Gained college-level knowledge for general classes in Math, English, History, etc.
         </section>
     
-        <section>
-        <h2>Professional Experience</h2>
-        <h3>SKECHERS</h3>
+        <section id="Professional Experience">
+        <h2 class="headingstyle">Professional Experience</h2>
+        <h3><a href="https://www.skechers.com/en-us/" target="_blank">SKECHERS</a></h3>
         <ul>
             <li><h4>Sales Associate - (August 2013 – April 2014)</h4></li>
         </ul>
@@ -44,7 +55,7 @@
                 <li>Cashier</li>
             </ul>
     
-            <h3>Pinnacle Quality Insight</h3>
+            <h3><a href="https://pinnacleqi.com/" target="_blank">Pinnacle Quality Insight</a></h3>
             <ul>
                 <li><h4>In-office Interviewer - (July 2014 – November 2014)</h4></li>
             </ul>
@@ -63,8 +74,8 @@
             In charge of gathering contact information to conduct monthly surveys. Builds web-based questionnaires using applications. Meets many different deadlines within the month. 
         </section>
     
-        <section>
-        <h2>Skills</h2>
+        <section id="Skills">
+        <h2 class="headingstyle">Skills</h2>
         <ul>
             <li>High Attention to Detail</li>
             <li>Organization</li>
@@ -73,15 +84,56 @@
             <li>Computer Skills (Microsoft, FileZilla, Crystal Reports)</li>
             <li>Problem Solving</li>
         </ul>
-        <section>
-        <h2>Certificates & Awards</h2>
-        <section>
-        <h2>Portfolio</h2>
+        <section id="Certificates & Awards">
+        <h2 class="headingstyle">Certificates & Awards</h2>
+        <section id="Portfolio">
+        <h2 class="headingstyle">Portfolio</h2>
         </section>
-    
-        <section>
-        <h2>References</h2>
+
+        <section id="References">
+            <h2 class="headingstyle">References</h2>
+
+                <tr>
+                    <thead>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Email Address</th>
+                    </thead>
+                </tr>
+                <tr>
+                    <tbody>
+                        <td>Peter Yin</td>
+                        <td>801-651-3347</td>
+                        <td>peter_yin@live.com</td>
+                </tr>
+                <tr>
+                        <td>Anh Pham</td>
+                        <td>801-512-6938</td>
+                        <td></td>
+                    </tbody>
+                </tr>
+            </table><br>
+            </section>
+        
+        
+
+        <section id="Contact">
+            <h4>Contact</h4>
+            <form method="POST">
+                <label>
+                    Name:<br>
+                    <input type="text" name="name" placeholder="Your Name">
+                </label><br>
+                <label>
+                    Phone Number:<br>
+                    <input type="text" name="PhoneNumber" placeholder="555-555-5555">
+                </label><br><br>
+                <label>
+                <textarea rows="5" cols="50" placeholder="Comments?"></textarea>
+                </label><br>
+                <input type="submit">
+            </form>
         </section>
-    
+        
 </body>
 </html>
