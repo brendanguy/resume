@@ -5,17 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brenda Nguy</title>
     <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
     <nav>
         <div>
-        <a href="#Education">Education</a>
-        <a href="#Professional Experience">Professional Experience</a>
-        <a href="#Skills">Skills</a>
-        <a href="#Certificates & Awards">Certificates & Awards</a>
-        <a href="#Portfolio">Portfolio</a>
-        <a href="#References">References</a>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#Education">Education</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#Professional Experience">Professional Experience</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#Certificates & Awards">Certificates & Awards</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#Portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#References">References</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#Education">Education</a>
+            </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 
@@ -47,7 +76,7 @@
         <ul>
             <li><h4>Sales Associate - (August 2013 – April 2014)</h4></li>
         </ul>
-            <ul>
+            <ul style="list-style: circle" class="indent">
                 <li>Sale of different products</li>
                 <li>Provided customer service</li> 
                 <li>Contributed to on-floor recovery and restocking</li> 
@@ -92,7 +121,7 @@
 
         <section id="References">
             <h2 class="headingstyle">References</h2>
-            <table>
+            <table class="table table-striped">
                 <tr>
                     <thead>
                         <th>Name</th>
