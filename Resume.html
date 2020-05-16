@@ -12,16 +12,15 @@
     <nav>
         <div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
             <li class="nav-item">
                 <a class="nav-link" href="#Education">Education</a>
             </li>
@@ -144,25 +143,57 @@
             </table><br>
             </section>
         
-        
-
         <section id="Contact">
-            <h4>Contact</h4>
+            <h2 class="headingstyle">Contact Me</h2>
+        <div class="container">       
+        <section id="Contact-form">
             <form method="POST">
                 <label>
                     Name:<br>
                     <input type="text" name="name" placeholder="Your Name">
                 </label><br>
                 <label>
+                    Email:<br>
+                    <input type="text" name="email" placeholder="info@gmail.com">
+                </label><br>
+                <label>
                     Phone Number:<br>
                     <input type="text" name="PhoneNumber" placeholder="555-555-5555">
                 </label><br><br>
                 <label>
-                <textarea rows="5" cols="50" placeholder="Comments?"></textarea>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">Reference</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Testimonial</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                        <label class="form-check-label" for="inlineRadio3">Request Service</label>
+                      </div>
+                </label><br>
+                <label>
+                    <textarea rows="5" cols="50" maxlength="140" placeholder="Comments?"></textarea>
                 </label><br>
                 <input type="submit">
             </form>
         </section>
-        
+
+        <section id="contact-info">
+            <h4>Contact Info</h4><br>
+            <div>Email Address: brenda-nguy@hotmail.com<br><br>
+            Phone Number: 801-953-2586</div>
+        </section>
+        </div>
+
+        <footer>
+            <a href="Brenda Nguy - Resume.pdf" target="_blank">Resume</a>
+        </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>        
 </body>
 </html>

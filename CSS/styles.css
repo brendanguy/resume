@@ -3,22 +3,8 @@ body {
     background-color: #cfe1f37c;
 }
 
-nav {
-    background-color: #1e516c;
-    text-align: center;
-    height: 50px;
-}
-nav > div {
-    height: 100%
-}
-nav > div > a {
-    color: white;
-    text-decoration: none;
-    padding: 1rem;
-    position: relative;
-}
-nav > div > a:hover {
-    background-color: rgb(44, 44, 41);
+.nav-item > a:hover {
+        background-color: rgb(255, 170, 58);
 }
 
 #home {
@@ -35,14 +21,11 @@ nav > div > a:hover {
 }
 #home > img {
     margin-left: 10%;
-}
-#home > p {
-    display: inline;
-}
-img {
     border-radius: 50%;
     float: left;
+    padding-right: 20px;
 }
+
 .headingstyle {
     background-color: #f08a26;
     font-family: palatino;
@@ -56,20 +39,29 @@ table {
     margin-right: auto;
     text-align: center;
 }
+
 .container {
     position: relative;
     margin-left: auto;
     margin-right: auto;
 }
-
-#Contact {
+#Contact-form {
     background-color: #6b8fb1;
     float: right;
     width: 500px;
+    height: 500px;
     padding-left: 65px;
     position: relative;
 }
+#contact-info {
+    float: right;
+    width: 500px;
+    height: 500px;
+    margin-right: 100px;
+}
+
 
 footer {
     text-align: center;
+    clear: both;
 }
