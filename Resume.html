@@ -34,10 +34,10 @@
                 <a class="nav-link" href="#Portfolio">Portfolio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#References">References</a>
+                <a class="nav-link" href="#references">References</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#Education">Education</a>
+                <a class="nav-link" href="#Contact">Contact</a>
             </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -118,60 +118,54 @@
         <h2 class="headingstyle">Portfolio</h2>
         </section>
 
-        <section id="References">
+        <section id="references">
             <h2 class="headingstyle">References</h2>
-            <table class="table table-striped">
-                <tr>
-                    <thead>
+            <table id="references-table" class="table table-striped">
+                <thead>
+                    <tr>
                         <th>Name</th>
                         <th>Phone Number</th>
                         <th>Email Address</th>
-                    </thead>
-                </tr>
-                <tr>
-                    <tbody>
-                        <td>Peter Yin</td>
-                        <td>801-651-3347</td>
-                        <td>peter_yin@live.com</td>
-                </tr>
-                <tr>
-                        <td>Anh Pham</td>
-                        <td>801-512-6938</td>
-                        <td></td>
-                    </tbody>
-                </tr>
-            </table><br>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- References will be inserted using JS -->
+                </tbody>
+            </table>
             </section>
         
         <section id="Contact">
             <h2 class="headingstyle">Contact Me</h2>
         <div class="container">       
         <section id="Contact-form">
-            <form method="POST">
+            <form method="POST" id="form">
                 <label>
                     Name:<br>
-                    <input type="text" id="name" name="name" placeholder="Your Name">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
                 </label><br>
                 <label>
-                    Email:<br>
-                    <input type="text" id="email" name="email" placeholder="info@gmail.com">
+                    Email Adress:<br>
+                    <input type="text" id="email" name="email" placeholder="info@gmail.com" required>
                 </label><br>
+                Phone Number:<br>
+                <input type="text" id="phone" name="phone" placeholder="555-555-5555" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            </label><br>
                 <label>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" required>
                         <label class="form-check-label" for="inlineRadio1">Reference</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" required>
                         <label class="form-check-label" for="inlineRadio2">Testimonial</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" required>
                         <label class="form-check-label" for="inlineRadio3">Request Service</label>
                       </div>
                 </label><br>
                 <label>
-                    <textarea rows="5" cols="50" maxlength="140" placeholder="Comments?"></textarea>
+                    <textarea rows="5" cols="50" maxlength="280" placeholder="Comments?"></textarea>
                 </label><br>
                 <input type="submit" id="submit" onclick="getContactData();">
             </form>

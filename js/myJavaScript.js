@@ -35,7 +35,51 @@ function greetUser() {
     $('#greetUser').modal('show');
 }
 
+function displayReferences() {
+    let references = [
+        {
+            name: 'Peter Yin',
+            phoneNumber: '801-651-3347',
+            email: 'peter_yin@live.com'
+        },
+        {
+            name: 'Anh Pham',
+            phoneNumber: '801-512-6938',
+            email: ''
+        }
+    ];
+
+    let tableBody = document.querySelector('#references-table > tbody')
+
+    for (let reference of references) {
+        /*
+        <tr>
+            <td>reference.name</td>
+            <td>reference.phoneNumber</td>
+            <td>reference.email</td>
+        </tr>
+        */
+       let html = '';
+       html += '<tr>';
+       html += '<td>' + reference.name + '</td>';
+       html += '<td>' + reference.phoneNumber + '</td>';
+       html += '<td>' + reference.email + '</td>';
+       html += '</tr>';
+
+       tableBody.innerHTML += html;
+    }
+}
+
 $(document).ready(() => {
     $('#getUserName').modal('show');
     customizeGreeting();
+    displayReferences();
+
+    document.getElementById('form').onsubmit = validateForm;
 });
+
+function validateForm(event) {
+    if (!document.getElementById('name').value.includes(' ')) {
+        event.preventDefault();
+    }
+}

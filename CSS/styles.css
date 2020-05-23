@@ -51,6 +51,7 @@ table {
     width: 500px;
     height: 500px;
     padding-left: 65px;
+    padding-top: 20px;
     position: relative;
 }
 #contact-info {
@@ -58,6 +59,10 @@ table {
     width: 500px;
     height: 500px;
     margin-right: 100px;
+}
+
+input:invalid {
+    border-color: red;
 }
 
 
