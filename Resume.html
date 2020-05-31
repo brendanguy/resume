@@ -57,16 +57,12 @@
     
         <section id="Education">
         <h2 class="headingstyle">Education</h2>
-        <h3><a href="https://schools.graniteschools.org/grangerhigh/" target="_blank">Granger High School</a></h3>
-        <ul>
-            <li><h4>High School Diploma - (June 2014)</h4></li>
-        </ul>
-        Received High School Diploma. Completed concurrent enrollment and honor classes. Dance Company team member for 3 years.
-        <h3><a href="http://www.slcc.edu/" target="_blank">Salt Lake Community College</a></h3>
-        <ul>
-            <li><h4>Certificate of Completion - (May 2017)</h4></li>
-        </ul>
-        Awarded Certificate of Completion in General Studies AS with 3.4 GPA. Gained college-level knowledge for general classes in Math, English, History, etc.
+        <h3>Granger High School</h3>
+            <h4 class="school">High School Diploma - (June 2014)</h4>
+                <p class="school-subtext">Received High School Diploma. Completed concurrent enrollment and honor classes. Dance Company team member for 3 years.</p>
+        <h3>Salt Lake Community College</h3>
+            <h4 class="school">Certificate of Completion - (May 2017)</h4>
+                <p class="school-subtext">Awarded Certificate of Completion in General Studies AS with 3.4 GPA. Gained college-level knowledge for general classes in Math, English, History, etc.</p>
         </section>
     
         <section id="Professional Experience">
@@ -141,14 +137,20 @@
             <form method="POST" id="form">
                 <label>
                     Name:<br>
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-                </label><br>
+                    <input type="text" id="name" name="name" placeholder=" Your Name" required>
+                    <div class="alert alert-danger fade" role="alert" id="name-alert">
+                        Please enter your full name.
+                      </div>
+                </label>
                 <label>
                     Email Adress:<br>
-                    <input type="text" id="email" name="email" placeholder="info@gmail.com" required>
-                </label><br>
+                    <input type="text" id="email" name="email" placeholder=" email@address.com" required>
+                    <div class="alert alert-danger fade" role="alert" id="email-alert">
+                        Please enter a valid email address.
+                      </div>
+                </label>
                 Phone Number:<br>
-                <input type="text" id="phone" name="phone" placeholder="555-555-5555" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                <input type="text" id="phone" name="phone" placeholder=" 555-555-5555" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
             </label><br>
                 <label>
                     <div class="form-check form-check-inline">
@@ -165,7 +167,7 @@
                       </div>
                 </label><br>
                 <label>
-                    <textarea rows="5" cols="50" maxlength="280" placeholder="Comments?"></textarea>
+                    <textarea id= "comments" rows="5" cols="50" maxlength="280" placeholder="Comments?"></textarea>
                 </label><br>
                 <input type="submit" id="submit" onclick="getContactData();">
             </form>

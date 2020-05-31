@@ -14,7 +14,7 @@ function customizeGreeting() {
 }
 
 function displayGreetingMessage(message) {
-    document.getElementById('message').innerHTML = message;
+    $('#message').html(message);
 }
 
 function getTimeOfDay() {
@@ -23,11 +23,6 @@ function getTimeOfDay() {
     return hour;
 }
 
-function getContactData() {
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    window.alert('Hello, ' + name + '! Thank you for your submission.')
-}
 function greetUser() {
     let name = document.getElementById('greetingName').value;
     document.getElementById('userName').innerHTML = name;
@@ -75,11 +70,51 @@ $(document).ready(() => {
     customizeGreeting();
     displayReferences();
 
-    document.getElementById('form').onsubmit = validateForm;
+    attachEvents();
 });
 
-function validateForm(event) {
-    if (!document.getElementById('name').value.includes(' ')) {
-        event.preventDefault();
+function attachEvents() {
+    $('#form').submit(validateForm);
+    $('#submit').on('click', formSubmission);
+    $('.school').click(toggleSubtext);
+}
+
+function toggleSubtext($event) {
+    console.log($event);
+    $($event.target.nextElementSibling).toggle();
+}
+
+
+function validateForm($event) {
+    if (!$('#name').val().includes(' ')) {
+        $('#name-alert').addClass('show');
+    } else {
+        $('#name-alert').removeClass('show');
     }
+
+    if (!$('#email').val().match(/([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})/)) {
+        $('#email-alert').addClass('show');
+    } else {
+        $('#email-alert').removeClass('show');  
+    }
+
+    $event.preventDefault();
+}
+
+function formSubmission() {
+    let contact = {
+        name: '',
+        email: '',
+        phoneNumber: '',
+        reason: '',
+        comment: ''
+    };
+
+    contact.name = document.querySelector('#name').value;
+    contact.email = document.querySelector('#email').value;
+    contact.phoneNumber = document.querySelector('#phone').value;
+    contact.reason = document.querySelector('#reason').value;
+    contact.comment = document.querySelector('#comments').value;
+
+    console.log(contact);
 }
