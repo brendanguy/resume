@@ -85,6 +85,7 @@ function toggleSubtext($event) {
 }
 
 
+
 function validateForm($event) {
     if (!$('#name').val().includes(' ')) {
         $('#name-alert').addClass('show');
