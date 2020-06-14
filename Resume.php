@@ -141,12 +141,198 @@
         
         <section id="Contact">
             <h2 class="headingstyle">Contact Me</h2>
+        <?php
+        try {
+            $tableName = "bnguy_contact_info";
+
+            function get_db_connection() {
+                // mysql -u millersummer2020 -p -h mysql.slccwebdev.com millersummer2020
+                $servername = 'mysql.slccwebdev.com';
+                $database = 'millersummer20';
+                $username = 'millersummer2020';
+                $password = 'SLCCMillerSummer2020';
+                $connection;
+
+                try {
+                    $connection = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+                    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    print 'Connected Successfully<br>';
+                } catch (PDOException $e) {
+                    print 'Connection failed';
+                    print $e->getMessage();
+                }
+
+                return $connection;
+            }
+
+            function create_table() {
+                $conn = get_db_connection();
+
+                try {
+                    $sql = "CREATE TABLE bnguy_contact_info (
+                            id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                            date TIMESTAMP,
+                            name VARCHAR(255),
+                            email VARCHAR(255),
+                            phone VARCHAR(255),
+                            contact_reason VARCHAR(255),
+                            comment VARCHAR(255)
+                        )";
+
+                    $conn->exec($sql);
+                    print "Table $tableName created successfully";
+
+                } catch(PDOException $e) {
+                    print "Could not create table: ".$e->getMessage();
+                }
+
+                $conn = null;
+            }
+
+            function populateData() {
+                $conn = get_db_connection();
+
+                try {
+                    $sql = "INSERT INTO bnguy_contact_info
+                                (date, name, email, phone, contact_reason, comment)
+                            VALUES
+                            ('".date("Y-m-d H:i:s")."','Brenda Nguy', 'brenda-nguy@hotmail.com', '801-953-2586', 'testimonial', 'Hello!')";
+                    $conn->exec($sql);
+                    print "Successfully inserted";
+                } catch(PDOException $e) {
+                    print "Could not create table $tableName: ".$e->getMessage();
+                } finally {
+                    $conn->close();
+                }   
+            }
+
+            // create_table();
+            
+            populateData();
+
+            function recordContactInformaion() {
+                $connection = get_db_connection();
+            }
+
+            function cleanData($data) {
+                $data = htmlspecialchars($data);
+                $data = trim($data);
+                $data = stripslashes($data);
+
+                return $data;
+            }
+            
+            $name = "";    
+            $nameErr = "";
+            $email = "";
+            $emailErr = "";
+            $phone = "";
+            $phoneErr = "";
+            $reasonForContacting = "";
+            $reasonForContactingErr = "";
+            $comments = "";
+            $successMessage = '';
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {         
+        if (empty($_POST["name"])) {
+            $nameErr = "The name field is required.";
+        } else {
+            $name = cleanData($_POST["name"]);
+
+            if (preg_match("/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/", $name)) {
+                echo $name;
+            } else {
+                $nameErr = "Please enter a valid name.";
+            }
+        }
+
+        if (empty($_POST["email"])) {
+            $emailErr = "The email field is required.";
+        } else {
+            $email = cleanData($_POST["email"]);
+
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                echo $email;
+            } else {
+                $nameErr = "Please enter a vaild email address.";
+            }
+        }
+
+        if (!empty($_POST["phone"])) {
+            $phone = cleanData($_POST["phone"]);
+
+            if (preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $phone)) {
+                echo $phone;
+            } else {
+                $phoneErr = "Please enter a valid phone number.";
+            }
+        }
+
+        if (empty($_POST["reasonForContacting"])) {
+            $reasonForContactingErr = "The reason for contacting field is required.";
+        } else {
+            $reasonForContacting = cleanData($_POST["reasonForContacting"]);
+            echo $reasonForContacting;
+        }
+
+        if (!empty($_POST["comments"])) {
+            $comments = cleanData($_POST["comments"]);
+        }
+
+        if (!empty($name) && !empty($email) && !empty($reasonForContacting)) {
+            $to = 'brenda-nguy@hotmail.com';
+            $subject = 'You Have a New Message.';
+
+            if ($reasonForContacting === 'reference') {
+                $subject = 'You Have a New Reference';
+            } elseif ($reasonForContacting === 'testimonial') {
+                $subject = 'You Have a New Testimonial'; 
+            } elseif ($reasonForContacting === 'Service-Request') {
+                    $subject = 'You have a New Service Request';
+            }
+
+            $headers = "From: ".$email."\r\n";
+            $headers .= "Reply-To: ".$email."\r\n";
+
+            $emailBody = $name.' has contacted you via your resume site. Their contact information is as follows:\r\n'
+                .'Name: '.$name.'\r\n'
+                .'Email: '.$email.'\r\n'
+                .'Phone Number: '.$phone.'\r\n'
+                .'Reason For Contacting: '.$reasonForContacting.'\r\n'
+                .'Comments: '.$comments.'\r\n';
+
+            if (mail($to, $subject, $emailBody, $headers)) {
+                $headers = "From: ".$to."\r\n";
+                $headers .= "Reply-To: ".$to."\r\n";
+
+                if (mail($email, 'Thank you. Your email has been sent.', $headers)) {
+                    $successMessage = 'Thank you for your contact information!';
+                } else {
+                    // Something Broke
+                }
+            } else {
+                // Something Broke
+            }
+        }
+    }
+
+    recordContactInformaion();
+} catch (Exception $e) {
+    echo $e;
+}
+    ?>
+
         <div class="container">       
         <section id="Contact-form">
-            <form method="POST" id="form">
+            <form method="POST" id="form" action="<?php htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                 <label>
                     Name:<br>
                     <input type="text" id="name" name="name" placeholder=" Your Name" required>
+                    
+                    <?php
+                    echo '<p class="invalid">'.$nameErr.'</p>';
+                    ?>
+
                     <div class="alert alert-danger fade" role="alert" id="name-alert">
                         Please enter your full name.
                       </div>
@@ -154,32 +340,51 @@
                 <label>
                     Email Address:<br>
                     <input type="text" id="email" name="email" placeholder=" email@address.com" required>
+                    
+                    <?php
+                    echo '<p class="invalid">'.$emailErr.'</p>';
+                    ?>
+
                     <div class="alert alert-danger fade" role="alert" id="email-alert">
                         Please enter a valid email address.
                       </div>
                 </label>
                 <div>Phone Number:<br>
                 <input type="text" id="phone" name="phone" placeholder=" 555-555-5555" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                    
+                <?php
+                echo '<p class="invalid">'.$phoneErr.'</p>';
+                ?>
+                    
                     </div>
             </label><br>
                 <label>
+                <p>Reason for contacting:</p>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" required>
+                        <input class="form-check-input" type="radio" name="reasonForContacting" id="inlineRadio1" value="Reference" required>
                         <label class="form-check-label" for="inlineRadio1">Reference</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" required>
+                        <input class="form-check-input" type="radio" name="reasonForContacting" id="inlineRadio2" value="Testimonial" required>
                         <label class="form-check-label" for="inlineRadio2">Testimonial</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" required>
+                        <input class="form-check-input" type="radio" name="reasonForContacting" id="inlineRadio3" value="Request-Service" required>
                         <label class="form-check-label" for="inlineRadio3">Request Service</label>
                       </div>
                 </label><br>
+
+                <?php
+                echo '<p class="invalid">'.$reasonForContactingErr.'</p>';
+                ?>
+
                 <label>
-                    <textarea id= "comments" rows="5" cols="50" maxlength="280" placeholder="Comments?"></textarea>
+                    <textarea id="comments" name="comments" class="form-control" rows="5" cols="50" maxlength="280" placeholder="Comments?"></textarea>
                 </label><br>
-                <input type="submit" id="submit" onclick="getContactData();">
+                <input type="submit" id="submit">
+
+                <?php echo $successMessage; ?>
+            
             </form>
         </section>
 
