@@ -58,17 +58,19 @@
     
         <section id="Education">
         <h2 class="headingstyle">Education</h2>
-        <h3 class="school">Granger High School</h3>
-                <p class="school-subtext">High School Diploma - (June 2014)<br>
-                Received High School Diploma. Completed concurrent enrollment and honor classes. Dance Company team member for 3 years.</p>
-        <h3 class="school">Salt Lake Community College</h3>
-                <p class="school-subtext">Certificate of Completion - (May 2017)<br>
-                Awarded Certificate of Completion in General Studies AS with 3.4 GPA. Gained college-level knowledge for general classes in Math, English, History, etc.</p>
+        <div>
+        <h3>Granger High School</h3>
+                High School Diploma - (June 2014)<br>
+                Received High School Diploma. Completed concurrent enrollment and honor classes. Dance Company team member for 3 years.
+        <h3>Salt Lake Community College</h3>
+                >Certificate of Completion - (May 2017)<br>
+                Awarded Certificate of Completion in General Studies AS with 3.4 GPA. Gained college-level knowledge for general classes in Math, English, History, etc.
+        </div>
         </section>
     
         <section id="Professional Experience">
         <h2 class="headingstyle">Professional Experience</h2>
-        <div class="toggle-info">
+        <div>
         <h3><a href="https://www.skechers.com/en-us/" target="_blank">SKECHERS</a></h3>
         <ul>
             <li><h4>Sales Associate - (August 2013 – April 2014)</h4></li>
@@ -156,7 +158,7 @@
                 try {
                     $connection = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
                     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    print 'Connected Successfully<br>';
+                    // print 'Connected Successfully<br>';
                 } catch (PDOException $e) {
                     print 'Connection failed';
                     print $e->getMessage();
@@ -207,8 +209,8 @@
             }
 
             // create_table();
-            
-            populateData();
+
+            // populateData();
 
             function recordContactInformaion() {
                 $connection = get_db_connection();
@@ -361,16 +363,16 @@
                 <label>
                 <p>Reason for contacting:</p>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="reasonForContacting" id="inlineRadio1" value="Reference" required>
-                        <label class="form-check-label" for="inlineRadio1">Reference</label>
+                        <input class="form-check-input" type="radio" name="reasonForContacting" id="reasonForContacting1" value="Reference" required>
+                        <label class="form-check-label" for="reasonForContacting1">Reference</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="reasonForContacting" id="inlineRadio2" value="Testimonial" required>
-                        <label class="form-check-label" for="inlineRadio2">Testimonial</label>
+                        <input class="form-check-input" type="radio" name="reasonForContacting" id="reasonForContacting2" value="Testimonial" required>
+                        <label class="form-check-label" for="reasonForContacting2">Testimonial</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="reasonForContacting" id="inlineRadio3" value="Request-Service" required>
-                        <label class="form-check-label" for="inlineRadio3">Request Service</label>
+                        <input class="form-check-input" type="radio" name="reasonForContacting" id="reasonForContacting3" value="Request-Service" required>
+                        <label class="form-check-label" for="reasonForContacting3">Request Service</label>
                       </div>
                 </label><br>
 
